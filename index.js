@@ -23,10 +23,25 @@ game.placeOToken(1,1);
 assert.ok(game.checkBoardState() === game.CONTINUE);
 game.placeXToken(0,2);
 assert.ok(game.checkBoardState() === game.X_WON);
-
-
 console.log(`game one over, ${game.checkBoardState()}`);
 
+// X wins on the bottom row (after 4 moves)
+game = new ttt.TicTacToe();
+game.placeXToken(0,0);
+assert.ok(game.checkBoardState() === game.CONTINUE);
+game.placeOToken(1,0);
+assert.ok(game.checkBoardState() === game.CONTINUE);
+game.placeXToken(2,1);
+assert.ok(game.checkBoardState() === game.CONTINUE);
+game.placeOToken(1,1);
+assert.ok(game.checkBoardState() === game.CONTINUE);
+game.placeXToken(2,2);
+assert.ok(game.checkBoardState() === game.CONTINUE);
+game.placeOToken(0,2);
+assert.ok(game.checkBoardState() === game.CONTINUE);
+game.placeXToken(2,0);
+assert.ok(game.checkBoardState() === game.X_WON);
+console.log(`game two over, ${game.checkBoardState()}`);
 
 
 function tryIllegalMove(row, column) {
