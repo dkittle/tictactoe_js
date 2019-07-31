@@ -6,5 +6,35 @@ var game = new ttt.TicTacToe();
 // Make sure we should continue game if no moves have been made.
 assert.ok(game.checkBoardState() === game.CONTINUE);
 
+// X should not be able to make an illegal move
+assert.ok(tryIllegalMove(-1,0));
+
+
+// State should be continue if X makes one move
+game.placeXToken(0,0);
+assert.ok(game.checkBoardState() === game.CONTINUE);
+
+// Finish playing were X wins on the top row
+game.placeOToken(1,0);
+assert.ok(game.checkBoardState() === game.CONTINUE);
+game.placeXToken(0,1);
+assert.ok(game.checkBoardState() === game.CONTINUE);
+game.placeOToken(1,1);
+assert.ok(game.checkBoardState() === game.CONTINUE);
+game.placeXToken(0,2);
+//assert.ok(game.checkBoardState() === game.X_WON);
+
+
 console.log(`game one over, ${game.checkBoardState()}`);
 
+
+
+function tryIllegalMove(row, column) {
+	try {
+		game.placeXToken(row, column);
+	}
+	catch (err) {
+		return true;
+	}
+	return false;
+}
