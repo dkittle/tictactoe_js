@@ -11,3 +11,4 @@ The board state will be: continue (to keep playing), stalemate (if noone has won
 
 I'm going to use asserts to validate inputs to functions.
 
+I'm going to store an integer value for each move which is the cell number in the board that the move was made into. Cell 0 is the upper left hand corner of the board, cell 1 is to it's right, cell 8 is the bottom right corner.
