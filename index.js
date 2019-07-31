@@ -22,7 +22,7 @@ assert.ok(game.checkBoardState() === game.CONTINUE);
 game.placeOToken(1,1);
 assert.ok(game.checkBoardState() === game.CONTINUE);
 game.placeXToken(0,2);
-//assert.ok(game.checkBoardState() === game.X_WON);
+assert.ok(game.checkBoardState() === game.X_WON);
 
 
 console.log(`game one over, ${game.checkBoardState()}`);

@@ -27,6 +27,28 @@ class TicTacToe {
 		this.moves = []
 	}
 	
+	everySecondMoveFromOffset(offset) {
+		var result = [];
+		for (var i = offset; i < this.moves.length; i += 2) {
+			if (this.moves[i] !== undefined) {
+				result.push(this.moves[i]);
+			}
+		}
+		return result;
+	}
+
+	hasPlayerWon(winningCombo, playerMoves) {
+		if (playerMoves.length < 3) {
+			return false;
+		}
+		for (var i = 0; i < winningCombo.length; i++) {
+			if (!playerMoves.includes(winningCombo[i])) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	checkBoardState() {
 		if (this.moves.length < 5)
 			return this.CONTINUE;
@@ -41,6 +63,13 @@ class TicTacToe {
 			[0,4,8],
 			[2,4,6]
 		];
+
+		var xMoves = this.everySecondMoveFromOffset(0);
+		for (var i = 0; i < winningMoves.length; i++) {
+			if (this.hasPlayerWon(winningMoves[i], xMoves)) {
+				return this.X_WON;
+			}
+		};
 
 		return this.CONTINUE;
 	}
