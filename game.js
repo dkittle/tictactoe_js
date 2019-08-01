@@ -71,6 +71,18 @@ class TicTacToe {
 			}
 		};
 
+		var oMoves = this.everySecondMoveFromOffset(1);
+		for (var i = 0; i < winningMoves.length; i++) {
+			if (this.hasPlayerWon(winningMoves[i], oMoves)) {
+				return this.O_WON;
+			}
+		};
+
+		console.log(`num moves ${this.moves.length}`);
+		if (this.moves.length == 9) {
+			return this.STALEMATE;
+		}
+
 		return this.CONTINUE;
 	}
 
