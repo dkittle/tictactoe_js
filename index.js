@@ -69,17 +69,17 @@ game.placeXToken(0,2);
 assert.ok(game.checkBoardState() === game.CONTINUE);
 game.placeOToken(1,0);
 assert.ok(game.checkBoardState() === game.CONTINUE);
-game.placeXToken(2,1);
-assert.ok(game.checkBoardState() === game.CONTINUE);
-game.placeOToken(1,2);
-assert.ok(game.checkBoardState() === game.CONTINUE);
 game.placeXToken(1,1);
 assert.ok(game.checkBoardState() === game.CONTINUE);
 game.placeOToken(2,0);
 assert.ok(game.checkBoardState() === game.CONTINUE);
-game.placeXToken(2,2);
-assert.ok(game.checkBoardState() === game.STALEMATE);
-console.log(`game three over, ${game.checkBoardState()}`);
+game.placeXToken(2,1);
+assert.ok(game.checkBoardState() === game.CONTINUE);
+game.placeOToken(2,2);
+assert.ok(game.checkBoardState() === game.CONTINUE);
+game.placeXToken(1,2);
+assert.ok(game.checkBoardState() === game.STALEMATE, `state = ${game.checkBoardState()}`);
+console.log(`game four over, ${game.checkBoardState()}`);
 
 
 function tryIllegalMove(row, column) {

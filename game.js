@@ -78,8 +78,7 @@ class TicTacToe {
 			}
 		};
 
-		console.log(`num moves ${this.moves.length}`);
-		if (this.moves.length == 9) {
+		if (this.moves.length === 9) {
 			return this.STALEMATE;
 		}
 
