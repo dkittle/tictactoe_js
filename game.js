@@ -37,12 +37,12 @@ class TicTacToe {
 		return result;
 	}
 
-	hasPlayerWon(winningCombo, playerMoves) {
+	hasPlayerMadeWinningMoves(winningCombo, playerMoves) {
 		if (playerMoves.length < 3) {
 			return false;
 		}
-		for (var i = 0; i < winningCombo.length; i++) {
-			if (!playerMoves.includes(winningCombo[i])) {
+		for (let item of winningCombo) {
+			if (!playerMoves.includes(item)) {
 				return false;
 			}
 		}
@@ -65,18 +65,15 @@ class TicTacToe {
 		];
 
 		var xMoves = this.everySecondMoveFromOffset(0);
-		for (var i = 0; i < winningMoves.length; i++) {
-			if (this.hasPlayerWon(winningMoves[i], xMoves)) {
+		var oMoves = this.everySecondMoveFromOffset(1);
+		for (let someWinningMoves of winningMoves) {
+			if (this.hasPlayerMadeWinningMoves(someWinningMoves, xMoves)) {
 				return this.X_WON;
 			}
-		};
-
-		var oMoves = this.everySecondMoveFromOffset(1);
-		for (var i = 0; i < winningMoves.length; i++) {
-			if (this.hasPlayerWon(winningMoves[i], oMoves)) {
+			if (this.hasPlayerMadeWinningMoves(someWinningMoves, oMoves)) {
 				return this.O_WON;
 			}
-		};
+		}
 
 		if (this.moves.length === 9) {
 			return this.STALEMATE;
