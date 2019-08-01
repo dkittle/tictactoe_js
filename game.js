@@ -2,13 +2,28 @@ const assert = require('assert');
 
 
 class TicTacToe {
+
+	get BOARD_WIDTH() {
+		return 3;
+	}
+
+	get CONTINUE() {
+		return 'continue';
+	}
+	
+	get STALEMATE() {
+		return 'stalemate';
+	}
+
+	get X_WON() {
+		return 'x_won';
+	}
+	
+	get O_WON() {
+		return 'o_won';
+	}
 	
 	constructor() {	
-		this.BOARD_WIDTH = 3;
-		this.CONTINUE = 'continue';
-		this.STALEMATE = 'stalemate';
-		this.X_WON = 'x_won';
-		this.O_WON = 'o_won';
 		this.moves = []
 	}
 	
