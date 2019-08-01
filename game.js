@@ -83,15 +83,19 @@ class TicTacToe {
 	}
 
 	placeXToken(row, column) {
-		assert.ok(row >=0 && row < this.BOARD_WIDTH && column >= 0 && column < this.BOARD_WIDTH,
-			`row ${row} and column ${column} must be between 0 and ${this.BOARD_WIDTH}`);
-		this.moves.push(row * this.BOARD_WIDTH + column);
+		this.placeToken(row, column);
 	}
 
 	placeOToken(row, column) {
+		this.placeToken(row, column);
+	}
+
+	placeToken(row, column) {
 		assert.ok(row >=0 && row < this.BOARD_WIDTH && column >= 0 && column < this.BOARD_WIDTH,
-			`row ${row} and column ${column} must be between 0 and ${this.BOARD_WIDTH - 1}`);
-		this.moves.push(row * this.BOARD_WIDTH + column);
+			`row ${row} and column ${column} must be between 0 and ${this.BOARD_WIDTH}`);
+		let position = row * this.BOARD_WIDTH + column;
+		assert.ok(!this.moves.includes(position), `someone has already played at row ${row}, column ${column}`);
+		this.moves.push(position);
 	}
 
 }

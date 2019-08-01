@@ -14,5 +14,3 @@ I'm going to use asserts to validate inputs to functions.
 I'm going to store an integer value for each move which is the cell number in the board that the move was made into. Cell 0 is the upper left hand corner of the board, cell 1 is to it's right, cell 8 is the bottom right corner.
 
 In spite of the game tracking moves in cell numbers (which are a single integer), functions that make the moves will take a zero indexed row, column pair as parameters. I'll have a separate function for X placing a token and O placing a token.
-
-Note, I'm not throwing an exception if a player goes out of turn nor am I testing to make sure a move has note already been made. Both would be trivial to add.
