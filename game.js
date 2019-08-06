@@ -83,10 +83,12 @@ class TicTacToe {
 	}
 
 	placeXToken(row, column) {
+		assert.ok(this.moves.length % 2 === 0, "it is X's turn to place their token");
 		this.placeToken(row, column);
 	}
 
 	placeOToken(row, column) {
+		assert.ok(this.moves.length % 2 !== 0, "it is O's turn to place their token");
 		this.placeToken(row, column);
 	}
 
